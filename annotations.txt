@@ -1,0 +1,29 @@
+django-admin: display subcommands
+django-admin startproject <project_name> -> starts a project
+python manage.py runserver 8000
+--> manage.py: file that allows command line commands
+python manage.py startapp <app_name>: creates a new app. Within a django project, it is possible to have multiple applications interacting with each other.
+--> An app is a python package with a defined structure
+python manage.py makemigrations : create new migrations based on the models
+python manage.py migrate: apply the migrations
+python manage.py createsuperuser: creates a admin user for the application.
+
+Requisiton process:
+1. Someone makes a request in the browser, to a specif URL.
+2. Than Django searches for a URL pattern in the URLConf file of the project that matches the requisition , in a top to bottom flow.
+3. When it found a correspondent, than it chops off the URL in the name of the app, and then send the remaining string to the URLConf of the app.
+4. After that, it searches if some URL pattern in the URLConf of the app matches the remaining string.
+5. If so, the view function is called and it returns, for example, a HTML document.
+
+Important files:
+-> views.py
+-> templates (subdirectory): directory created inside the app folder. Django will look for templates inside it.
+----> app_directory_name\templates\app_directory_name
+* Django only looks for templates subdirectory inside apps that are definied in the "INSTALLED APPS" variable in the settings file of the project.
+-> urls.py
+
+Imporante concepts
+-> Template Language; template inheritance
+
+
+
