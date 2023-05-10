@@ -4,9 +4,28 @@ python manage.py runserver 8000
 --> manage.py: file that allows command line commands
 python manage.py startapp <app_name>: creates a new app. Within a django project, it is possible to have multiple applications interacting with each other.
 --> An app is a python package with a defined structure
-python manage.py makemigrations : create new migrations based on the models
+python manage.py makemigrations : tells Django that changes were made in the models
 python manage.py migrate: apply the migrations
+python manage.py sqlmigrate blog 0001 -> shows the raw SQL that's running on the background of migrate.
+python manage.py shell -> opens the interactive django shell to make queries
+
+Queries within the shell:
+-> User.objects.all()
+-> User.objects.first()
+-> User.objects.filter(username='x')
+-> User.objects.filter(username='x').first()
+-> user = User.objects.filter(username='x').first()
+---> user.id / user.pk
+-> user = User.objects.get(id=int)
+-> post_1 = Post(author=user, content='O primeiro post do site') -> it is possible to acess the value in the field, by post_1.author, for example
+---> It's possible to acess the author's email too. Like: post_1.author.email
+-> user.post_set.all : shows the related rows between user and post
+-> user.post_set.create(title='Mais um post de Guilherme', content='Estou sem ideia') create a post directly from the user object
+
+
+--> post_1.save()> apply the insert
 python manage.py createsuperuser: creates a admin user for the application.
+
 
 Requisiton process:
 1. Someone makes a request in the browser, to a specif URL.
@@ -24,6 +43,9 @@ Important files:
 
 Imporante concepts
 -> Template Language; template inheritance
+
+Django ORM: Object Relational Mapper
+-> a layer between a database and a Object Oriented programming language
 
 
 

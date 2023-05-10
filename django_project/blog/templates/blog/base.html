@@ -18,10 +18,10 @@ Outros documentos HTML irão herdar esse documento-->
 
     <link rel="stylesheet" href="{% static 'blog/main.css' %}" type="text/css">
 
-    {% if title %}
-        <title>Django Blog - {{ title }}</title>
+    {% if pagetitle %}
+        <title>{{ pagetitle }}</title>
     {% else %}
-        <title>About page</title>
+        <title>No title</title>
     {% endif %}
   </head>
 
@@ -46,6 +46,7 @@ Outros documentos HTML irão herdar esse documento-->
                 <!-- href com referência as urls do app-->
               <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
               <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+              <a class="nav-item nav-link" href=" /admin ">Admin page</a>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -63,12 +64,12 @@ Outros documentos HTML irão herdar esse documento-->
           </div>
           <div class="col-md-4">
             <div class="content-section">
-              <h3>Our Sidebar</h3>
-              <p class='text-muted'>You can put any information here you'd like.
+              <h3>Painel geral</h3>
+              <p class='text-muted'>Adicione informações aqui.
                 <ul class="list-group">
-                  <li class="list-group-item list-group-item-light">Latest Posts</li>
-                  <li class="list-group-item list-group-item-light">Announcements</li>
-                  <li class="list-group-item list-group-item-light">Calendars</li>
+                  <li class="list-group-item list-group-item-light">últimos posts</li>
+                  <li class="list-group-item list-group-item-light">Anúncios</li>
+                  <li class="list-group-item list-group-item-light">Agendas</li>
                   <li class="list-group-item list-group-item-light">etc</li>
                 </ul>
               </p>
