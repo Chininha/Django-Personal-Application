@@ -1,8 +1,9 @@
 <!-- documento HTML padrão para todas as páginas 
-Outros documentos HTML irão herdar esse documento-->
+Outros documentos HTML irão herdar esse documento
+Static files: arquivos css-->
 
 {% load static %}
-<html lang="en">
+<html lang="pt">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -50,8 +51,8 @@ Outros documentos HTML irão herdar esse documento-->
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
-              <a class="nav-item nav-link" href="#">Login</a>
-              <a class="nav-item nav-link" href="#">Register</a>
+              <a class="nav-item nav-link mr-2" href="#">Entre agora</a>
+              <a class="nav-item nav-link" href="{% url 'register-page'%}">Registre-se</a>
             </div>
           </div>
         </div>
@@ -60,6 +61,13 @@ Outros documentos HTML irão herdar esse documento-->
     <main role="main" class="container">
         <div class="row">
           <div class="col-md-8">
+            {% if messages %}
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{message}}
+                </div>
+              {% endfor %}
+            {% endif %}
             {% block content %}{% endblock %}
           </div>
           <div class="col-md-4">

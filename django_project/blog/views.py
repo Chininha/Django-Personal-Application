@@ -23,5 +23,4 @@ def home_page(request: render):
 
 
 def about_page(request: HttpResponse):
-    template = loader.get_template('blog/about_page.html')
-    return HttpResponse(template.render(request=request))
+    return render(request, template_name='blog/about_page.html', context={'pagetitle':'Sobre o Blog'})

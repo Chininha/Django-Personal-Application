@@ -1,0 +1,21 @@
+<!--CSRF token: Cross-site request forgery token: protege contra ataques-->
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %} <!--Carregando o crispy forms para aplicar no html-->
+{% block content %}
+    <div class="content-section">
+        <form action="" method="post">
+                {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Preencha o formulário de inscrição</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Se inscreva</button>
+
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="small-muted">Já possui uma conta? <a class="ml-2" href="#">Clique aqui para entrar</a></small>
+        </div>
+    </div>
+{% endblock content %}

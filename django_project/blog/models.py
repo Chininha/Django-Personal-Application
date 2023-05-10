@@ -16,7 +16,7 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.title # o que será retornado nas querie
+        return self.title # o que será retornado nas queries
     
 
 

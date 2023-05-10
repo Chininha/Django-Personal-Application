@@ -27,5 +27,6 @@ urlpatterns = [
 
     # recebe http://localhost:8000/. Toda a parte até "8000/" é cortada, e somente o "" é enviado.
     # Caso haja um correspondente no blog/urls.py, ele trará a view.
-    path('', include('blog.urls'))
+    path('', include('blog.urls')),
+    path('', include('users.urls')) # path('register/', users.views.register_page)
 ]

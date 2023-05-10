@@ -11,4 +11,4 @@ urlpatterns = [
     path('', views.home_page, name='blog-home'),
     # esse path é usado como busca após o URLConf do projeto retornar a string de comparação. Caso bata, retorna a view.
     path('about/', view=views.about_page, name='blog-about')
-]
+]   
