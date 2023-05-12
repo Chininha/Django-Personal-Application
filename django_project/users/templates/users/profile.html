@@ -1,0 +1,7 @@
+<title>Login page</title>
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content%}
+    <h1>{{ user.username }}</h1><!--É possível acessar informações de usuário sem ter que passar no context -->
+    <img src="" alt="">
+{% endblock content %}

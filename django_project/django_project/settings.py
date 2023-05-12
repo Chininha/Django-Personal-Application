@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # é importante incluir o nome do app nessa variável.
+    # é importante incluir o nome dos apps nessa variável.
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'crispy_forms', # bootstrap pronto para forms. Biblioteca
@@ -130,3 +130,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
 CRISPY_TEMPLATE_PACK = 'bootstrap4' # alterando a versão do bootstrap que será usada
+
+LOGIN_REDIRECT_URL = 'blog-home' # página a redirecionar após realizar o login
+LOGIN_URL = 'login' # página que aparece quando login é requerido 

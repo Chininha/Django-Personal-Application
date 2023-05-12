@@ -1,0 +1,10 @@
+<title>Logout page</title>
+{% extends 'blog/base.html' %}
+{% block content %}
+<h2>Deslogado com sucesso</h2>
+    <div class="border-top pt-3">
+        <small class="small-muted">
+            <a href="{% url 'login' %}">Entrar novamente</a>
+        </small>
+    </div>
+{% endblock content%}

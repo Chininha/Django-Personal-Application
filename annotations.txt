@@ -21,6 +21,7 @@ Queries within the shell:
 ---> It's possible to acess the author's email too. Like: post_1.author.email
 -> user.post_set.all : shows the related rows between user and post
 -> user.post_set.create(title='Mais um post de Guilherme', content='Estou sem ideia') create a post directly from the user object
+-> user.profile.image | user.profile.image.width
 
 
 --> post_1.save()> apply the insert
