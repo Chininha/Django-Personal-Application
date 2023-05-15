@@ -8,6 +8,7 @@ timezone.now-> funciona como o auto_now_add, mas permite modificar."""
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Post(models.Model):
     author = models.ForeignKey(to=User, on_delete=models.CASCADE) # se um usuário é deletado, todos os seus posts também são
@@ -17,6 +18,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title # o que será retornado nas queries
+    
+    # redirect: redireciona para uma rota específica
+    # reverse: retorna a url para a rota como uma string
+    def get_absolute_url(self):
+        return reverse('post-detail', kwargs={'pk':self.pk}) # para qual post deve redirecionar 
+        
     
 
 

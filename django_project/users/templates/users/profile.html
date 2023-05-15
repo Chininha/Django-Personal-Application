@@ -1,7 +1,24 @@
-<title>Login page</title>
 {% extends 'blog/base.html' %}
 {% load crispy_forms_tags %}
 {% block content%}
-    <h1>{{ user.username }}</h1><!--É possível acessar informações de usuário sem ter que passar no context -->
-    <img src="" alt="">
+  <div class="content-section">
+    <div class="media">
+      <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+      <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}</p>
+      </div> <!--É possível acessar informações de usuário sem ter que passar no context -->
+    </div>
+      <form action="" method="post" enctype="multipart/form-data"> <!-- encoding para os dados da imagem serem passados corretamente-->
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">Informações de perfil</legend>
+            {{ u_form|crispy }}
+            {{ p_form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Atualizar</button>
+        </div>
+    </form>
+  </div>
 {% endblock content %}

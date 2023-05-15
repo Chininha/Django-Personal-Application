@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -133,3 +134,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4' # alterando a versão do bootstrap que será
 
 LOGIN_REDIRECT_URL = 'blog-home' # página a redirecionar após realizar o login
 LOGIN_URL = 'login' # página que aparece quando login é requerido 
+
+MEDIA_ROOT = Path(BASE_DIR) / 'media' # onde os arquivos subidos serão salvos no sistema.
+# o parâmetro upload_to do model levará para esse diretório media dentro do base_dir
+MEDIA_URL = '/media/' # como acessar a media no browser
