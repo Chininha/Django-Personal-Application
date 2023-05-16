@@ -22,6 +22,7 @@ Queries within the shell:
 -> user.post_set.all : shows the related rows between user and post
 -> user.post_set.create(title='Mais um post de Guilherme', content='Estou sem ideia') create a post directly from the user object
 -> user.profile.image | user.profile.image.width
+-> Post 
 
 
 --> post_1.save()> apply the insert
@@ -48,5 +49,16 @@ Imporante concepts
 Django ORM: Object Relational Mapper
 -> a layer between a database and a Object Oriented programming language
 
-
+from django.core.paginator import Paginator 
+>>> posts = ['1', '2', '3', '4', '5']        
+>>> p = Paginator(posts, 2)
+>>> p.num_pages
+for page in p.page_range:
+...     print(page)
+p1 = p.page(1) - acessando a página
+p1.number - retorna o número da página
+p1.object_list -> Mostra os objetos da página
+p1.has_previous() -> verifica se há páginas antes
+p1.has_next() -> verifica se há páginas depois
+p1.next_page_number() -> retorna o número da próxima página
 

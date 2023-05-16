@@ -6,7 +6,9 @@ from . import views
 from .views import (PostListView,
                     PostDetails,
                     CreatePostView,
-                    PostUpdateView
+                    PostUpdateView,
+                    PostDeleteView,
+                    UserPostListView
                 )
 
 
@@ -19,7 +21,9 @@ urlpatterns = [
     path('about/', view=views.about_page, name='blog-about'),
     path('post/<int:pk>/', PostDetails.as_view(), name='post-detail'), # url dinâmica com url
     path('post/create',view=CreatePostView.as_view(), name='post-create'),
-    path('post/<int:pk>/update', view=PostUpdateView.as_view(), name='post-update')
-]   
+    path('post/<int:pk>/update', view=PostUpdateView.as_view(), name='post-update'),
+    path('post/<int:pk>/delete', view=PostDeleteView.as_view(), name='post-delete'),
+    path('user/<str:username>', view=UserPostListView.as_view(), name='user-posts')
+]
 
 #<app>/<model>_<viewtype>.html
